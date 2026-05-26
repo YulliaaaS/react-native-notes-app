@@ -10,7 +10,7 @@ export default function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [editingNote, setEditingNote] = useState<Note | null>(null);
   
-  // Стейт для модалки підтвердження видалення
+  // Стейт для підтвердження видалення
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [noteToDelete, setNoteToDelete] = useState<{ id: string; title: string } | null>(null);
 
@@ -216,7 +216,7 @@ export default function HomeScreen() {
         <Feather name="plus" size={24} color="#FFFFFF" />
       </TouchableOpacity>
 
-      {/* 📝 МОДАЛЬНЕ ВІКНО СТВОРЕННЯ/РЕДАГУВАННЯ */}
+      {/* МОДАЛЬНЕ ВІКНО СТВОРЕННЯ/РЕДАГУВАННЯ */}
       <Modal 
         visible={modalVisible} 
         animationType="slide" 
@@ -283,7 +283,7 @@ export default function HomeScreen() {
         </KeyboardAvoidingView>
       </Modal>
 
-      {/* 🚨 КАСТОМНЕ МОДАЛЬНЕ ВІКНО ПІДТВЕРДЖЕННЯ ВИДАЛЕННЯ */}
+      {/* КАСТОМНЕ МОДАЛЬНЕ ВІКНО ПІДТВЕРДЖЕННЯ ВИДАЛЕННЯ */}
       <Modal
         visible={deleteModalVisible}
         transparent={true}
@@ -522,7 +522,6 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   
-  // Стилі для нового вікна підтвердження видалення
   confirmOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.6)',

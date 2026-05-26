@@ -4,7 +4,7 @@ import { NotesProvider } from '../context/NotesContext';
 export default function RootLayout() {
   return (
     <NotesProvider>
-      {/* Stack замість Slot дозволить нашому HomeScreen керувати кольором усього екрана */}
+      {/* Stack замість Slot дозволить керувати кольором усього екрана */}
       <Stack screenOptions={{ headerShown: false }} />
     </NotesProvider>
   );
