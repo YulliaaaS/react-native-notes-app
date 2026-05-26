@@ -1,56 +1,51 @@
-# Welcome to your Expo app 👋
+# Додаток «Мої Нотатки»
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Сучасний та зручний мобільний додаток для керування ідеями та завданнями, побудований на базі **React Native** та **Expo**.
 
-## Get started
+## Функціонал
+- **Повний цикл CRUD**: Створення, редагування, та видалення нотаток.
+- **Локальне зберігання**: Всі дані надійно зберігаються на пристрої за допомогою `AsyncStorage`.
+- **Пошук**: Швидкий пошук потрібної інформації за текстом у заголовку або змісті.
+- **Кольорова фільтрація**: Можливість класифікувати нотатки за допомогою кольорів (використовується масив `PASTEL_COLORS` з `NotesContext`).
+- **Темна тема**: Повна підтримка системної темної теми для комфортного використання вночі.
 
-1. Install dependencies
+## Покрокова інструкція для запуску
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### Крок 1: Клонування репозиторію
+Відкрийте термінал та виконайте наступні команди:
 ```bash
-npm run reset-project
+git clone https://github.com/YulliaaaS/react-native-notes-app.git
+cd react-native-notes-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Крок 2: Встановлення залежностей
+Встановіть усі необхідні бібліотеки:
+```bash
+npm install
+```
 
-### Other setup steps
+### Крок 3: Запуск сервера розробки
+Для того, щоб додаток гарантовано відкрився на вашому смартфоні (навіть якщо телефон і комп'ютер перебувають у різних Wi-Fi мережах або використовують мобільний інтернет), запускайте проект із прапорцем --tunnel:
+```bash
+npx expo start --tunnel
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+### Крок 4: Як відкрити додаток
+- **На смартфоні**: Встановіть додаток **Expo Go** (iOS/Android) та відскануйте QR-код з терміналу.
+- **У браузері**: Натисніть клавішу `w` у терміналі, щоб запустити веб-версію.
+- **В емуляторі**: Натисніть `a` для Android або `i` для iOS.
 
-## Learn more
+## Технічний стек
 
-To learn more about developing your project with Expo, look at the following resources:
+| Технологія             | Опис                                                         |
+|------------------------|--------------------------------------------------------------|
+| **React Native**       | Фреймворк для кросплатформної розробки                       |
+| **Expo SDK 54**        | Фіксована версія SDK для стабільної роботи                   |
+| **Expo Router**        | Файлова система маршрутизації (File-based routing)           |
+| **AsyncStorage**       | Локальне сховище для збереження даних користувача            |
+| **@expo/vector-icons** | Набір іконок (використовується бібліотека **Feather**)       |
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+> **Важлива примітка:** Проект використовує фіксовану версію **Expo SDK 54**. Будь ласка, не оновлюйте версію SDK без попереднього тестування сумісності компонентів.
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+*Розроблено в рамках навчального проекту.*
