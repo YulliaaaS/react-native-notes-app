@@ -4,28 +4,30 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 export interface Note {
   id: string;
   title: string;
-  text: string;
+  content: string;
   color: string;
-  date: string;
+  createdAt: string;
 }
 
 interface NotesContextType {
   notes: Note[];
   isDarkMode: boolean;
   toggleTheme: () => void;
-  addNote: (title: string, text: string, color: string) => void;
-  updateNote: (id: string, title: string, text: string, color: string) => void;
+  addNote: (title: string, content: string, color: string) => void;
+  updateNote: (id: string, title: string, content: string, color: string) => void;
   deleteNote: (id: string) => void;
 }
+
+export const PASTEL_COLORS = ['#FFD93D', '#6BCB77', '#4D96FF', '#FF6B6B', '#9B72AA'];
 
 const NotesContext = createContext<NotesContextType | undefined>(undefined);
 
 export function NotesProvider({ children }: { children: React.ReactNode }) {
   const [notes, setNotes] = useState<Note[]>([
     // Додамо відразу початкові нотатки, щоб екран не був пустим
-    { id: '1', title: 'Покупки', text: 'Купити молоко, хліб, сир та фрукти на тиждень.', color: '#FFF9C4', date: '24.05.2026' },
-    { id: '2', title: 'Проєкт React Native', text: 'Зробити залікову роботу, налаштувати пошук та кольори.', color: '#E8F5E9', date: '24.05.2026' },
-    { id: '3', title: 'Ідеї', text: 'Почати вчити дизайн мобільних інтерфейсів.', color: '#E1F5FE', date: '23.05.2026' }
+    { id: '1', title: 'Покупки', content: 'Купити молоко, хліб, сир та фрукти на тиждень.', color: '#FFF9C4', createdAt: '24.05.2026' },
+    { id: '2', title: 'Проєкт React Native', content: 'Зробити залікову роботу, налаштувати пошук та кольори.', color: '#E8F5E9', createdAt: '24.05.2026' },
+    { id: '3', title: 'Ідеї', content: 'Почати вчити дизайн мобільних інтерфейсів.', color: '#E1F5FE', createdAt: '23.05.2026' }
   ]);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
@@ -54,20 +56,20 @@ export function NotesProvider({ children }: { children: React.ReactNode }) {
     await AsyncStorage.setItem('@theme', nextTheme ? 'dark' : 'light');
   };
 
-  const addNote = (title: string, text: string, color: string) => {
+  const addNote = (title: string, content: string, color: string) => {
     const newNote: Note = {
       id: Date.now().toString(),
       title: title.trim() || 'Без назви',
-      text,
+      content,
       color,
-      date: new Date().toLocaleDateString('uk-UA'),
+      createdAt: new Date().toLocaleDateString('uk-UA'),
     };
     saveNotes([newNote, ...notes]);
   };
 
-  const updateNote = (id: string, title: string, text: string, color: string) => {
+  const updateNote = (id: string, title: string, content: string, color: string) => {
     const updated = notes.map(note => 
-      note.id === id ? { ...note, title: title.trim() || 'Без назви', text, color } : note
+      note.id === id ? { ...note, title: title.trim() || 'Без назви', content, color } : note
     );
     saveNotes(updated);
   };
