@@ -55,7 +55,6 @@ export default function HomeScreen() {
     setModalVisible(false);
   };
 
-  // Замість Alert відкриваємо власну гарну модалку
   const confirmDelete = (id: string, title: string) => {
     setNoteToDelete({ id, title });
     setDeleteModalVisible(true);
@@ -192,9 +191,9 @@ export default function HomeScreen() {
           );
         }}
         ListEmptyComponent={
-          searchQuery ? (
+          notes.length > 0 ? (
             <Text style={[styles.emptyText, { color: isDarkMode ? '#8E8E93' : '#999999' }]}>
-              Нічого не знайдено за вашим запитом 🔍
+              Нічого не знайдено за вашим запитом 
             </Text>
           ) : (
             <View style={styles.emptyContainer}>
